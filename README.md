@@ -14,7 +14,7 @@ With very simple Delegate methods developer can easily integrate and exploit Thi
 
 Developer has to get an API Key from Google Api console for Google Places API Web Service.
 
-# How to User?
+# How to Use?
 
 - Bind 'MVPlaceSearchTextField' as Class for UITextField in the Storyboard.
 - Also set its delegate named, placeSearchDelegate.
