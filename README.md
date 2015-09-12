@@ -1,7 +1,3 @@
-# Updated with New GoogleMaps SDK for iOS
-Control is now updated to use with iOS API Keys (Earlier it was using NSURLConnection along with Browser key from Google APIs).Its now fully supported with Google's standard classes like GMSPlace, so that it can be easily used along with Google Maps
-
-
 # MVAutocompletePlaceSearchTextField
 iOS - Subclass of UITextField to achieve autocompletion for Place Search like Google Places, Uber and Much more apps having maps.
 
@@ -35,6 +31,8 @@ That's it !!
 
 ![Animated Demo](https://www.dropbox.com/s/m6angscdzxh7do7/MVPlaceSearch.gif?dl=1)
 
+# Updated with New GoogleMaps SDK for iOS
+Control is now updated to use with iOS API Keys (Earlier it was using NSURLConnection along with Browser key from Google APIs).Its now fully supported with Google's standard classes like GMSPlace, so that it can be easily used along with Google Maps
 
 # Special Thanks
 https://github.com/EddyBorja/MLPAutoCompleteTextField
