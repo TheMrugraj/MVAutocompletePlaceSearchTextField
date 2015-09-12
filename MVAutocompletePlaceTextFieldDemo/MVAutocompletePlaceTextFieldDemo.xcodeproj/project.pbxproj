@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7346D9058C3488E00D2FEF63 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B01535414B02449CD02CE75 /* libPods.a */; };
 		A98696551B284F4700DC52C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A98696541B284F4700DC52C6 /* main.m */; };
 		A98696581B284F4700DC52C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A98696571B284F4700DC52C6 /* AppDelegate.m */; };
 		A986965B1B284F4700DC52C6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A986965A1B284F4700DC52C6 /* ViewController.m */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B01535414B02449CD02CE75 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6126FF9A19836CDE00E7D17 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A986964F1B284F4700DC52C6 /* MVAutocompletePlaceTextFieldDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVAutocompletePlaceTextFieldDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98696531B284F4700DC52C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A98696541B284F4700DC52C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		A98696841B284F6F00DC52C6 /* PlaceDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetail.m; sourceTree = "<group>"; };
 		A98696851B284F6F00DC52C6 /* PlaceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceObject.h; sourceTree = "<group>"; };
 		A98696861B284F6F00DC52C6 /* PlaceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceObject.m; sourceTree = "<group>"; };
+		E1691FBA3D6E598ECFF4C1C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7346D9058C3488E00D2FEF63 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,12 +83,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94C76F532A8181BE69F8750A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B01535414B02449CD02CE75 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A98696461B284F4600DC52C6 = {
 			isa = PBXGroup;
 			children = (
 				A98696511B284F4700DC52C6 /* MVAutocompletePlaceTextFieldDemo */,
 				A986966B1B284F4700DC52C6 /* MVAutocompletePlaceTextFieldDemoTests */,
 				A98696501B284F4700DC52C6 /* Products */,
+				ED3DCD897EA8A8E728B7A96D /* Pods */,
+				94C76F532A8181BE69F8750A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +181,15 @@
 			path = MLPAutoCompleteTextField;
 			sourceTree = "<group>";
 		};
+		ED3DCD897EA8A8E728B7A96D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1691FBA3D6E598ECFF4C1C0 /* Pods.debug.xcconfig */,
+				A6126FF9A19836CDE00E7D17 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,9 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A98696721B284F4700DC52C6 /* Build configuration list for PBXNativeTarget "MVAutocompletePlaceTextFieldDemo" */;
 			buildPhases = (
+				4A7CADABE3212F7485487F9D /* Check Pods Manifest.lock */,
 				A986964B1B284F4700DC52C6 /* Sources */,
 				A986964C1B284F4700DC52C6 /* Frameworks */,
 				A986964D1B284F4700DC52C6 /* Resources */,
+				62143DED9A0A9B5D65056118 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,6 +286,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A7CADABE3212F7485487F9D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		62143DED9A0A9B5D65056118 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A986964B1B284F4700DC52C6 /* Sources */ = {
@@ -397,6 +456,7 @@
 		};
 		A98696731B284F4700DC52C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1691FBA3D6E598ECFF4C1C0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MVAutocompletePlaceTextFieldDemo/Info.plist;
@@ -408,6 +468,7 @@
 		};
 		A98696741B284F4700DC52C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6126FF9A19836CDE00E7D17 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MVAutocompletePlaceTextFieldDemo/Info.plist;
@@ -470,6 +531,7 @@
 				A98696741B284F4700DC52C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A98696751B284F4700DC52C6 /* Build configuration list for PBXNativeTarget "MVAutocompletePlaceTextFieldDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +540,7 @@
 				A98696771B284F4700DC52C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

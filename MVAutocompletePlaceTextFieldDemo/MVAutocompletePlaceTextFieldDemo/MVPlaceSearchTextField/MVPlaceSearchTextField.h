@@ -12,9 +12,10 @@
 #import "MLPAutoCompleteTextField.h"
 #import "MVPlaceSearchTextField.h"
 #import "PlaceObject.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @protocol PlaceSearchTextFieldDelegate <NSObject>
--(void)placeSearchResponseForSelectedPlace:(NSMutableDictionary*)responseDict;
+-(void)placeSearchResponseForSelectedPlace:(GMSPlace*)responseDict;
 -(void)placeSearchWillShowResult;
 -(void)placeSearchWillHideResult;
 -(void)placeSearchResultCell:(UITableViewCell*)cell withPlaceObject:(PlaceObject*)placeObject atIndex:(NSInteger)index;

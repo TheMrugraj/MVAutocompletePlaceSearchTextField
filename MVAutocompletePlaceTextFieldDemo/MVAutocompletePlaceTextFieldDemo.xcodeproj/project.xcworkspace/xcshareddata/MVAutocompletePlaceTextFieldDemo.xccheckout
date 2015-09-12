@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>F8F90E26-ABD0-42CB-A634-A5384146DA6C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>MVAutocompletePlaceTextFieldDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>9475F9EA9F1270B55850D6333B75C56D2D1DB859</key>
 		<string>https://github.com/mrugrajsinh/MVAutocompletePlaceSearchTextField</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MVAutocompletePlaceTextFieldDemo/MVAutocompletePlaceTextFieldDemo.xcodeproj/project.xcworkspace</string>
+	<string>MVAutocompletePlaceTextFieldDemo/MVAutocompletePlaceTextFieldDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>9475F9EA9F1270B55850D6333B75C56D2D1DB859</key>

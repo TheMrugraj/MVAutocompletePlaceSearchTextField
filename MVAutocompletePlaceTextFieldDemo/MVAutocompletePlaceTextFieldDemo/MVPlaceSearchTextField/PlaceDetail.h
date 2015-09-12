@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @protocol PlaceDetailDelegate <NSObject>
 
--(void)placeDetailForReferance:(NSString*)referance didFinishWithResult:(NSMutableDictionary*)resultDict;
+-(void)placeDetailForReferance:(NSString*)referance didFinishWithResult:(GMSPlace*)resultDict;
 @end
 
 @interface PlaceDetail : NSObject{

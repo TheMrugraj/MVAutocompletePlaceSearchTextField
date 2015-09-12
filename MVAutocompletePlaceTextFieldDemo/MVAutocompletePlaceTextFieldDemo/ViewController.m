@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "MVPlaceSearchTextField.h"
-
+#import <GoogleMaps/GoogleMaps.h>
 @interface ViewController ()<PlaceSearchTextFieldDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet MVPlaceSearchTextField *txtPlaceSearch;
 @end
@@ -54,12 +54,9 @@
 }
 
 #pragma mark - Place search Textfield Delegates
--(void)placeSearchResponseForSelectedPlace:(NSMutableDictionary*)responseDict{
+-(void)placeSearchResponseForSelectedPlace:(GMSPlace*)responseDict{
     [self.view endEditing:YES];
-    NSLog(@"%@",responseDict);
-    
-    NSDictionary *aDictLocation=[[[responseDict objectForKey:@"result"] objectForKey:@"geometry"] objectForKey:@"location"];
-    NSLog(@"SELECTED ADDRESS :%@",aDictLocation);
+    NSLog(@"SELECTED ADDRESS :%@",responseDict);
 }
 -(void)placeSearchWillShowResult{
     

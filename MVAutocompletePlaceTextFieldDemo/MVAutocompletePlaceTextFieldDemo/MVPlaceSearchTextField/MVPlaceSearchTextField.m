@@ -11,7 +11,11 @@
 #import "PlaceDetail.h"
 #import "PlaceObject.h"
 #import "MLPAutoCompleteTextField.h"
-@interface MVPlaceSearchTextField ()<MLPAutoCompleteFetchOperationDelegate,MLPAutoCompleteSortOperationDelegate,MLPAutoCompleteTextFieldDataSource,MLPAutoCompleteTextFieldDelegate,PlaceDetailDelegate>
+
+
+@interface MVPlaceSearchTextField ()<MLPAutoCompleteFetchOperationDelegate,MLPAutoCompleteSortOperationDelegate,MLPAutoCompleteTextFieldDataSource,MLPAutoCompleteTextFieldDelegate,PlaceDetailDelegate>{
+    GMSPlacesClient *_placesClient;
+}
 
 @end
 
@@ -44,7 +48,7 @@
     self.autoCompleteShouldHideOnSelection=YES;
     self.maximumNumberOfAutoCompleteRows= 5;
     self.autoCompleteShouldHideClosingKeyboard = YES;
-
+    _placesClient = [GMSPlacesClient sharedClient];
     
 }
 #pragma mark - Datasource Autocomplete
@@ -53,34 +57,43 @@
  possibleCompletionsForString:(NSString *)string
             completionHandler:(void (^)(NSArray *))handler
 {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
-    dispatch_async(queue, ^{
-        
+    
+
         NSString *aQuery=[textField.text stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
+        [NSObject cancelPreviousPerformRequestsWithTarget:_placesClient selector:@selector(autocompleteQuery:bounds:filter:callback:) object:self];
+    
+        if(aQuery.length>0){
+            GMSAutocompleteFilter *filter = [[GMSAutocompleteFilter alloc] init];
+            filter.type = kGMSPlacesAutocompleteTypeFilterNoFilter;
         
-//        NSString *aStrURl=[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/queryautocomplete/json?&key=%@&sensor=false&input=%@",_strApiKey,aQuery];
-        NSString *aStrURl;
-        if(_strApiKey){
-            aStrURl=[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&sensor=true&key=%@",aQuery,_strApiKey];
-        }else{
-            aStrURl=[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&sensor=true",aQuery];
-        }
+            
         
-        NSMutableDictionary *aResultDict=[self stringWithUrl:[NSURL URLWithString:aStrURl]].mutableCopy;
-        
-        if(aResultDict){
-            NSArray *aResult=[aResultDict objectForKey:@"predictions"];
-            NSMutableArray *arrfinal=[NSMutableArray array];
-            for (NSDictionary *aTempDict in aResult) {
-                PlaceObject *placeObj=[[PlaceObject alloc]initWithPlaceName:[aTempDict objectForKey:@"description"]];
-                placeObj.userInfo=aTempDict;
-                [arrfinal addObject:placeObj];
-            }
-            handler(arrfinal);
+            [_placesClient autocompleteQuery:aQuery
+                                      bounds:nil
+                                      filter:filter
+                                    callback:^(NSArray *results, NSError *error) {
+                                        if (error != nil) {
+                                            NSLog(@"Autocomplete error %@", [error localizedDescription]);
+                                            handler(nil);
+                                            return;
+                                        }
+                                        if(results.count>0){
+                                        NSMutableArray *arrfinal=[NSMutableArray array];
+                                        for (GMSAutocompletePrediction* result in results) {
+                                            NSDictionary *aTempDict =  [NSDictionary dictionaryWithObjectsAndKeys:result.attributedFullText.string,@"description",result.placeID,@"reference", nil];
+                                            PlaceObject *placeObj=[[PlaceObject alloc]initWithPlaceName:[aTempDict objectForKey:@"description"]];
+                                            placeObj.userInfo=aTempDict;
+                                            [arrfinal addObject:placeObj];
+
+                                        }
+                                            handler(arrfinal);
+                                        }else{
+                                            handler(nil);
+                                        }
+                                    }];
         }else{
             handler(nil);
         }
-    });
 }
 
 
@@ -123,12 +136,9 @@
 
 #pragma mark - PlaceDetail Delegate
 
--(void)placeDetailForReferance:(NSString *)referance didFinishWithResult:(NSMutableDictionary *)resultDict{
-    dispatch_sync(dispatch_get_main_queue(), ^{
+-(void)placeDetailForReferance:(NSString *)referance didFinishWithResult:(GMSPlace*)resultDict{
         //Respond To Delegate
         [_placeSearchDelegate placeSearchResponseForSelectedPlace:resultDict];
-    });
-    
 }
 
 

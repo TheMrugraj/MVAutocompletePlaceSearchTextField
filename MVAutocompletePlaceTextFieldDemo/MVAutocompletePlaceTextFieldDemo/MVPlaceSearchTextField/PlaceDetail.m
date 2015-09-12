@@ -8,6 +8,7 @@
 
 #import "PlaceDetail.h"
 
+
 #define apiURL @"https://maps.googleapis.com/maps/api/place/details/json?reference=%@&sensor=true&key=%@"
 #define apiURLWithoutKey @"https://maps.googleapis.com/maps/api/place/details/json?reference=%@&sensor=true"
 @implementation PlaceDetail
@@ -24,11 +25,15 @@
     NSString *aStrUrl=aStrApiKey?[NSString stringWithFormat:apiURL,strReferance,aStrApiKey]:[NSString stringWithFormat:apiURLWithoutKey,strReferance];
     NSURL *aUrl=[NSURL URLWithString:aStrUrl];
     
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
-    dispatch_async(queue, ^{
-        NSMutableDictionary *aResultDict=[self stringWithUrl:aUrl].mutableCopy;
-        [_delegate placeDetailForReferance:strReferance didFinishWithResult:aResultDict];
-    });
+    [[GMSPlacesClient sharedClient]lookUpPlaceID:strReferance callback:^(GMSPlace * _Nullable result, NSError * _Nullable error) {
+        if(result){
+            [_delegate placeDetailForReferance:strReferance didFinishWithResult:result];
+        }
+        else{
+            NSLog(@"%@",error);
+        }
+    }];
+    
     
 }
 
