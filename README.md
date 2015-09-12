@@ -18,6 +18,8 @@ With very simple Delegate methods developer can easily integrate and exploit Thi
 
 Developer has to get an API Key from Google Api console for Google Places API Web Service.
 
+EDIT: As per the latest updates, You will need to integrate GoogleMaps SDK. For that you may head out to [Google iOS SDK Integration (Step 3)](https://developers.google.com/places/ios-api/start#step-3-install-the-api-using-cocoapods)
+
 # How to Use?
 
 - Bind 'MVPlaceSearchTextField' as Class for UITextField in the Storyboard.
