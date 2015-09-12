@@ -1,7 +1,5 @@
 # Updated with New GoogleMaps SDK for iOS
-    Control is now updated to use with iOS API Keys (Earlier it was using NSURLConnection along with Browser key from Google APIs).
-    
-    Fully supported with Google's standard classes like GMSPlace, so that it can be easily used along with Google Maps
+Control is now updated to use with iOS API Keys (Earlier it was using NSURLConnection along with Browser key from Google APIs).Its now fully supported with Google's standard classes like GMSPlace, so that it can be easily used along with Google Maps
 
 
 # MVAutocompletePlaceSearchTextField
@@ -25,9 +23,9 @@ Developer has to get an API Key from Google Api console for Google Places API We
 - Bind 'MVPlaceSearchTextField' as Class for UITextField in the Storyboard.
 - Also set its delegate named, placeSearchDelegate.
 - And set your API Key as value of Property "strApiKey"
-    Create iOS Key to use it here from Google Console, for ![more info](https://console.developers.google.com/flows/enableapi?apiid=placesios,maps_ios_backend&keyType=CLIENT_SIDE_IOS)
+Create iOS Key to use it here from Google Console, for [more info](https://console.developers.google.com/flows/enableapi?apiid=placesios,maps_ios_backend&keyType=CLIENT_SIDE_IOS)
 
- or refer Step 4 from
+or refer Step 4 from
 https://developers.google.com/places/ios-api/start#get-key
 
 That's it !!
