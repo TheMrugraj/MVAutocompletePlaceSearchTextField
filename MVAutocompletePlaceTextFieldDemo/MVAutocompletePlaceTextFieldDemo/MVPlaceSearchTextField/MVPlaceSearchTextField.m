@@ -59,7 +59,7 @@
 {
     
 
-        NSString *aQuery=[textField.text stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
+        NSString *aQuery=textField.text;
         [NSObject cancelPreviousPerformRequestsWithTarget:_placesClient selector:@selector(autocompleteQuery:bounds:filter:callback:) object:self];
     
         if(aQuery.length>0){

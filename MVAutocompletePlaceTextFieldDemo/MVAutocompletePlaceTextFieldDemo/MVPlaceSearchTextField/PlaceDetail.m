@@ -22,19 +22,15 @@
 }
 
 -(void)getPlaceDetailForReferance:(NSString*)strReferance{
-    NSString *aStrUrl=aStrApiKey?[NSString stringWithFormat:apiURL,strReferance,aStrApiKey]:[NSString stringWithFormat:apiURLWithoutKey,strReferance];
-    NSURL *aUrl=[NSURL URLWithString:aStrUrl];
-    
-    [[GMSPlacesClient sharedClient]lookUpPlaceID:strReferance callback:^(GMSPlace * _Nullable result, NSError * _Nullable error) {
-        if(result){
-            [_delegate placeDetailForReferance:strReferance didFinishWithResult:result];
+    [NSString stringWithFormat:apiURLWithoutKey,strReferance];
+    [[GMSPlacesClient sharedClient]lookUpPlaceID:strReferance callback:^(GMSPlace *place, NSError *error) {
+        if(place){
+            [_delegate placeDetailForReferance:strReferance didFinishWithResult:place];
         }
         else{
             NSLog(@"%@",error);
         }
     }];
-    
-    
 }
 
 - (NSDictionary *)stringWithUrl:(NSURL *)url
