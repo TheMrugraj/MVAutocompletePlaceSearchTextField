@@ -22,6 +22,7 @@ EDIT: As per the latest updates, You will need to integrate GoogleMaps SDK. For 
 - Also set its delegate named, placeSearchDelegate.
 - And set your API Key as value of Property "strApiKey"
 Create iOS Key to use it here from Google Console, for [more info](https://console.developers.google.com/flows/enableapi?apiid=placesios,maps_ios_backend&keyType=CLIENT_SIDE_IOS)
+- Also add [GMSServices provideAPIKey:@"YOUR API KEY"]; in application:didFinishLaunchingWithOptions of AppDelegate.
 
 or refer Step 4 from
 https://developers.google.com/places/ios-api/start#get-key
