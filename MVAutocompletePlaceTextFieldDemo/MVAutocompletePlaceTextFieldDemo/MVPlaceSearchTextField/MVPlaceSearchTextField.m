@@ -114,8 +114,8 @@
        forAutoCompleteObject:(id<MLPAutoCompletionObject>)autocompleteObject
            forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if([_placeSearchDelegate respondsToSelector:@selector(placeSearchResultCell:withPlaceObject:atIndex:)]){
-        [_placeSearchDelegate placeSearchResultCell:cell withPlaceObject:autocompleteObject atIndex:indexPath.row];
+    if([_placeSearchDelegate respondsToSelector:@selector(placeSearch:ResultCell:withPlaceObject:atIndex:)]){
+        [_placeSearchDelegate placeSearch:self ResultCell:cell withPlaceObject:autocompleteObject atIndex:indexPath.row];
     }else{
         cell.contentView.backgroundColor=[UIColor whiteColor];
     }
@@ -123,13 +123,13 @@
 }
 
 -(void)autoCompleteTextField:(MLPAutoCompleteTextField *)textField willShowAutoCompleteTableView:(UITableView *)autoCompleteTableView{
-    if([_placeSearchDelegate respondsToSelector:@selector(placeSearchWillShowResult)]){
-        [_placeSearchDelegate placeSearchWillShowResult];
+    if([_placeSearchDelegate respondsToSelector:@selector(placeSearchWillShowResult:)]){
+        [_placeSearchDelegate placeSearchWillShowResult:self];
     }
 }
 -(void)autoCompleteTextField:(MLPAutoCompleteTextField *)textField willHideAutoCompleteTableView:(UITableView *)autoCompleteTableView{
-    if([_placeSearchDelegate respondsToSelector:@selector(placeSearchWillHideResult)]){
-        [_placeSearchDelegate placeSearchWillHideResult];
+    if([_placeSearchDelegate respondsToSelector:@selector(placeSearchWillHideResult:)]){
+        [_placeSearchDelegate placeSearchWillHideResult:self];
     }
 }
 
@@ -138,7 +138,7 @@
 
 -(void)placeDetailForReferance:(NSString *)referance didFinishWithResult:(GMSPlace*)resultDict{
         //Respond To Delegate
-        [_placeSearchDelegate placeSearchResponseForSelectedPlace:resultDict];
+    [_placeSearchDelegate placeSearch:self ResponseForSelectedPlace:resultDict];
 }
 
 

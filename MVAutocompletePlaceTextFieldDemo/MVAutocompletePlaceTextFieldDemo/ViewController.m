@@ -54,17 +54,18 @@
 }
 
 #pragma mark - Place search Textfield Delegates
--(void)placeSearchResponseForSelectedPlace:(GMSPlace*)responseDict{
+
+-(void)placeSearch:(MVPlaceSearchTextField*)textField ResponseForSelectedPlace:(GMSPlace*)responseDict{
     [self.view endEditing:YES];
     NSLog(@"SELECTED ADDRESS :%@",responseDict);
 }
--(void)placeSearchWillShowResult{
+-(void)placeSearchWillShowResult:(MVPlaceSearchTextField*)textField{
     
 }
--(void)placeSearchWillHideResult{
+-(void)placeSearchWillHideResult:(MVPlaceSearchTextField*)textField{
     
 }
--(void)placeSearchResultCell:(UITableViewCell *)cell withPlaceObject:(PlaceObject *)placeObject atIndex:(NSInteger)index{
+-(void)placeSearch:(MVPlaceSearchTextField*)textField ResultCell:(UITableViewCell*)cell withPlaceObject:(PlaceObject*)placeObject atIndex:(NSInteger)index{
     if(index%2==0){
         cell.contentView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
     }else{

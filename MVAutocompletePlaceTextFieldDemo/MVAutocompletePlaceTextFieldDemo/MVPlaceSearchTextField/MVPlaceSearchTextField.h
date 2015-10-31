@@ -14,15 +14,18 @@
 #import "PlaceObject.h"
 #import <GoogleMaps/GoogleMaps.h>
 
-@protocol PlaceSearchTextFieldDelegate <NSObject>
--(void)placeSearchResponseForSelectedPlace:(GMSPlace*)responseDict;
--(void)placeSearchWillShowResult;
--(void)placeSearchWillHideResult;
--(void)placeSearchResultCell:(UITableViewCell*)cell withPlaceObject:(PlaceObject*)placeObject atIndex:(NSInteger)index;
-@end
+@protocol PlaceSearchTextFieldDelegate;
 
 @interface MVPlaceSearchTextField : MLPAutoCompleteTextField
 @property(nonatomic,strong)NSString *strApiKey;
-
 @property(nonatomic,strong)IBOutlet id<PlaceSearchTextFieldDelegate>placeSearchDelegate;
 @end
+
+@protocol PlaceSearchTextFieldDelegate <NSObject>
+
+-(void)placeSearch:(MVPlaceSearchTextField*)textField ResponseForSelectedPlace:(GMSPlace*)responseDict;
+-(void)placeSearchWillShowResult:(MVPlaceSearchTextField*)textField;
+-(void)placeSearchWillHideResult:(MVPlaceSearchTextField*)textField;
+-(void)placeSearch:(MVPlaceSearchTextField*)textField ResultCell:(UITableViewCell*)cell withPlaceObject:(PlaceObject*)placeObject atIndex:(NSInteger)index;
+@end
+
