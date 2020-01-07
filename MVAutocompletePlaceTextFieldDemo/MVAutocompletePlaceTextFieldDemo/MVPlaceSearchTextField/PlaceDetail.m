@@ -25,7 +25,7 @@
     [NSString stringWithFormat:apiURLWithoutKey,strReferance];
     [[GMSPlacesClient sharedClient]lookUpPlaceID:strReferance callback:^(GMSPlace *place, NSError *error) {
         if(place){
-            [_delegate placeDetailForReferance:strReferance didFinishWithResult:place];
+          [self->_delegate placeDetailForReferance:strReferance didFinishWithResult:place];
         }
         else{
             NSLog(@"%@",error);

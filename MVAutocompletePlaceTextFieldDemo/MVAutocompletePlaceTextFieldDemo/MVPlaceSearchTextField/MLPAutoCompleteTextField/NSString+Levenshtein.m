@@ -84,8 +84,8 @@ int smallestOf(int a, int b, int c);
     // Step 1
     int k, i, j, cost, * d, distance;
     
-    int n = [dataA length];
-    int m = [dataB length];
+    int n = (int)[dataA length];
+    int m = (int)[dataB length];
     
     if( n++ != 0 && m++ != 0 ) {
         

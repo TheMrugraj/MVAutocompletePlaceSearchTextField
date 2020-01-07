@@ -39,7 +39,7 @@
 
 
 -(void)awakeFromNib{
-
+    [super awakeFromNib];
     self.autoCompleteDataSource=self;
     self.autoCompleteDelegate=self;
     self.autoCompleteFontSize=14;
@@ -49,7 +49,6 @@
     self.maximumNumberOfAutoCompleteRows= 5;
     self.autoCompleteShouldHideClosingKeyboard = YES;
     _placesClient = [GMSPlacesClient sharedClient];
-    
 }
 #pragma mark - Datasource Autocomplete
 //example of asynchronous fetch:
