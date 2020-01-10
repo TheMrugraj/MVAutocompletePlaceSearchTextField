@@ -237,7 +237,7 @@ static NSString *kDefaultAutoCompleteCellIdentifier = @"_DefaultAutoCompleteCell
 
 + (NSString *) accessibilityLabelForIndexPath:(NSIndexPath *)indexPath
 {
-    return [NSString stringWithFormat:@"{%d,%d}",indexPath.section,indexPath.row];
+  return [NSString stringWithFormat:@"{%ld,%ld}",(long)indexPath.section,(long)indexPath.row];
 }
 
 - (void)configureCell:(UITableViewCell *)cell
@@ -909,7 +909,7 @@ withAutoCompleteString:(NSString *)string
                                  completionHandler:^(NSArray *suggestions){
                                      
                                      [operation performSelector:@selector(didReceiveSuggestions:) withObject:suggestions];
-                                     dispatch_semaphore_signal(sentinelSemaphore);
+              dispatch_semaphore_signal(self->sentinelSemaphore);
                                  }];
             
             dispatch_semaphore_wait(sentinelSemaphore, DISPATCH_TIME_FOREVER);
